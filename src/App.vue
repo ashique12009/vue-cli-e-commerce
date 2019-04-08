@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <navbar></navbar>
+    <navbar @search="search"></navbar>
 
     <div class="container">
       <div class="row mt-15">
@@ -53,6 +53,11 @@ export default {
   methods: {
     addCartItem(item){
       this.cart.push(item);
+    },
+    search(keyword){
+      this.items = Data.filter(item => {
+        return item.product_name.toLowerCase().indexOf(keyword.toLowerCase()) !== -1;
+      });
     }
   }
 }
