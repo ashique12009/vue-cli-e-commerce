@@ -39,7 +39,7 @@ export default {
     }
   },
   mounted(){
-    this.items = Data;
+    
   },
   methods: {
     addCartItem(item){

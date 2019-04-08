@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <a class="navbar-brand" href="#">Navbar</a>
+      <router-link class="navbar-brand" :to="{path: '/'}">Vue-cli E-commerce</router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -27,10 +27,10 @@
               Account holder name
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Profile</a>
+              <a class="dropdown-item" href="#">Settings</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="#">Logout</a>
             </div>
           </li>
         </ul>
@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
   data(){
     return {
@@ -47,7 +49,14 @@ export default {
   },
   methods: {
     search(){
-      this.$emit('search', this.keyword);
+      let _this = this;
+      axios.get('http://localhost:3000/search/' + this.keyword)
+      .then(response => {
+        
+      })
+      .catch(error => {
+        console.log(error);
+      });
     }
   }
 }
