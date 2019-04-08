@@ -8,10 +8,13 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <router-link class="nav-link" :to="{path: '/'}">Home</router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <router-link class="nav-link" :to="{path: '/about'}">About</router-link>
+          </li>
+          <li class="nav-item">
+            <router-link class="nav-link" :to="{path: '/contact'}">Contact</router-link>
           </li>
         </ul>
         <form @submit.prevent="search" class="form-inline my-2 my-lg-0">

@@ -4,16 +4,9 @@
 
     <div class="container">
       <div class="row mt-15">
-        <div class="col-sm-9">
-          <div class="card">
-            <div class="card-header">
-              <h4>Products</h4>
-            </div>
-            <div class="card-body">
-              <inventory @newItemAdded="addCartItem" :items="items"></inventory>
-            </div>
-          </div>
-        </div>
+
+        <router-view></router-view>
+
         <div class="col-sm-3">
           <div class="card">
             <div class="card-header">
@@ -24,6 +17,7 @@
             </div>
           </div>
         </div>
+      
       </div>
     </div>
   </div>
@@ -32,14 +26,11 @@
 <script>
 import Navbar from './components/Navbar';
 import Cart from './components/Cart';
-import Inventory from './components/Inventory';
-import Data from './data.js';
 
 export default {
   components: {
     Navbar,
-    Cart,
-    Inventory
+    Cart
   },
   data(){
     return {
