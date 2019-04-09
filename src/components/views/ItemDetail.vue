@@ -10,7 +10,7 @@
                     <img :src="item.photo" alt="photo">
                 </div>
                 <div>Price: {{ item.price }}</div>
-                <button class="btn btn-sm btn-primary">+ Add</button>
+                <button class="btn btn-sm btn-primary" @click="addToCart(item)">+ Add</button>
             </div>
         </div>
     </div>
@@ -39,6 +39,9 @@ export default {
             .catch(error => {
                 console.log(error);
             });
+        },
+        addToCart(item){
+            this.$store.commit('addToCart', item);
         }
     }
 }
