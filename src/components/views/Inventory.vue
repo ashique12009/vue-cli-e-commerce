@@ -28,12 +28,16 @@ import axios from 'axios';
 export default {
   data(){
     return {
-      loading: true,
-      items: []
+      loading: true
     }
   },
   mounted(){
     this.fetchItem();
+  },
+  computed: {
+    items(){
+      return this.$store.getters.getInventory;
+    }
   },
   methods: {
     addToCart(item){
@@ -43,7 +47,7 @@ export default {
       let _this = this;
       axios.get('http://localhost:3000/items')
       .then(response => {
-        _this.items = response.data;
+        _this.$store.commit('setInventory', response.data);
         _this.loading = false;
       })
       .catch(error => {
